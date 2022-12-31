@@ -1,0 +1,12 @@
+server:
+  port: 9000
+  netty:
+    connection-timeout: 2s # How long to wait for TCP connection
+    idle-timeout: 15s # How long to wait before closing TCP connection if no data
+  shutdown: graceful
+
+spring:
+  application:
+    name: edge-service
+  lifecycle:
+    timeout-per-shutdown-phase: 15s # grace period
