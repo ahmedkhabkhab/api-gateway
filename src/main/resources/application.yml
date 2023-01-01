@@ -19,6 +19,18 @@ spring:
           type: elastic # elastic, fixed or disabled
           max-idle-time: 15s # Idle time after which communication channel closes
           max-life-time: 60s # Time after which communication channel closes
+      default-filters:
+        - name: Retry
+          args:
+            retries: 3
+            methods: GET
+            series: SERVER_ERROR # (When the error is 5xx)
+            exceptions: java.io.IOException, java.util.concurrent.TimeoutException # Only when these exceptions are thrown
+            backoff:
+              firstBackoff: 500ms
+              maxBackoff: 500ms
+              factor: 2
+              basedOnPreviousValue: false
 
       routes:
         - id: catalog-route
