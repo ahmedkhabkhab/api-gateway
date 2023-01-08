@@ -37,6 +37,7 @@ spring:
               replenishRate: 10
               burstCapacity: 20
               requestedTokens: 1
+        - name: SaveSession # Save session data in the store before forwarding the request to the downstream
 
       routes:
         - id: catalog-route
