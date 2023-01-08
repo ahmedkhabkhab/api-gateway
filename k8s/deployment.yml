@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: api-gateway
+  name: api-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-gateway
+  template:
+    metadata:
+      labels:
+        app: api-gateway
+    spec:
+      containers:
+        - image: api-gateway
+          name: api-gateway
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9000
+          env:
+            - name: SPRING_CLOUD_CONFIG_URI
+              value: http://config-service
+            - name: CATALOG_SERVICE_URL
+              value: http://catalog-service
+            - name: ORDER_SERVICE_URL
+              value: http://order-service
+            - name: SPRING_REDIS_HOST
+              value: polar-redis

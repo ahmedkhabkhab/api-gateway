@@ -39,6 +39,10 @@
 			<artifactId>spring-session-data-redis</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.testcontainers</groupId>
 			<artifactId>junit-jupiter</artifactId>
 			<scope>test</scope>
@@ -81,7 +85,6 @@
 					</execution>
 				</executions>
 				<configuration>
-					<imageName>${project.name}</imageName>
 					<environmentVariables><BP_JVM_VERSION>17.*</BP_JVM_VERSION></environmentVariables>
 					<docker>
 						<publishRegistry>
