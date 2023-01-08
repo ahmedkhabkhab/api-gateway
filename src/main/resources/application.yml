@@ -10,20 +10,19 @@ spring:
     name: api-gateway
   lifecycle:
     timeout-per-shutdown-phase: 15s # grace period
+  config:
+    import: "optional:configserver:"
   cloud:
     config:
-      import: "optional:configserver:"
-      cloud:
-        config:
-          uri: http://localhost:8888
-          request-connect-timeout: 5000
-          request-read-timeout: 5000
-          fail-fast: false
-        retry:
-          max-attempts: 6
-          multiplier: 1.1
-          initial-interval: 1000
-          max-interval: 2000
+      uri: http://localhost:8888
+      request-connect-timeout: 5000
+      request-read-timeout: 5000
+      fail-fast: false
+      retry:
+        max-attempts: 6
+        multiplier: 1.1
+        initial-interval: 1000
+        max-interval: 2000
     gateway:
       httpclient:
         connect-timeout: 2000
