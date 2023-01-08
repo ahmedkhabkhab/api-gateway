@@ -17,6 +17,9 @@
 		<java.version>17</java.version>
 		<spring-cloud.version>2021.0.3</spring-cloud.version>
 		<testcontainersVersion>1.17.2</testcontainersVersion>
+		<registry.username/>
+		<registry.token/>
+		<registry.url/>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -70,6 +73,24 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>build-image</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<imageName>${project.name}</imageName>
+					<environmentVariables><BP_JVM_VERSION>17.*</BP_JVM_VERSION></environmentVariables>
+					<docker>
+						<publishRegistry>
+							<url>${registry.url}</url>
+							<username>${registry.username}</username>
+							<password>${registry.token}</password>
+						</publishRegistry>
+					</docker>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
