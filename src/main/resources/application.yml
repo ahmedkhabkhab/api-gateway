@@ -7,7 +7,7 @@ server:
 
 spring:
   application:
-    name: edge-service
+    name: api-gateway
   lifecycle:
     timeout-per-shutdown-phase: 15s # grace period
   cloud:
