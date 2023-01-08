@@ -56,6 +56,11 @@ spring:
             - name: CircuitBreaker
               args:
                 name: orderCircuitBreaker
+  session:
+    store-type: redis
+    timeout: 10m
+    redis:
+      namespace: polar:edge
 
 resilience4j:
   circuitbreaker:
