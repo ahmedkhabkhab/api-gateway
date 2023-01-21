@@ -41,10 +41,10 @@ jobs:
       - name: Validate Kubernetes manifests
         uses: stefanprodan/kube-tools@v1
         with:
-          kubectl: 1.25.2
-          kubeval: 0.16.1
+          kubectl: 1.26.1
+          kubeconform: 0.5.0
           command: |
-            kubeval --strict -d k8s
+            kubeconform -strict -debug k8s
   package:
     name: Package and publish
     if: ${{github.ref == 'refs/heads/master'}}
