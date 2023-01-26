@@ -17,7 +17,7 @@ public class UserController {
     public Mono<User> getUser(@AuthenticationPrincipal OidcUser oidcUser) {
         var user = new User(
                 oidcUser.getPreferredUsername(),
-                oidcUser.getName(),
+                oidcUser.getGivenName(),
                 oidcUser.getFamilyName(),
                 List.of("employee", "customer")); // hardcoded for now, we'll update them later
         return Mono.just(user);
