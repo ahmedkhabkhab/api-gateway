@@ -30,4 +30,4 @@ spec:
             - name: SPRING_REDIS_HOST
               value: polar-redis
             - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER_URI
-              value: http://polar-keycloak
+              value: http://polar-keycloak/realms/PolarBookshop
