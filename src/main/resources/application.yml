@@ -33,6 +33,7 @@ spring:
           max-life-time: 60s # Time after which communication channel closes
       default-filters:
         - SaveSession # Save session data in the store before forwarding the request to the downstream
+        - TokenRelay # Enable the porpagation of the Access Token when calling a downstream service
         - name: Retry
           args:
             retries: 3
