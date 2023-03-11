@@ -19,7 +19,7 @@ public class UserController {
                 oidcUser.getPreferredUsername(),
                 oidcUser.getGivenName(),
                 oidcUser.getFamilyName(),
-                List.of("employee", "customer")); // hardcoded for now, we'll update them later
+                oidcUser.getClaimAsStringList("roles"));
         return Mono.just(user);
     }
 
