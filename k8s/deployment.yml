@@ -31,3 +31,5 @@ spec:
               value: polar-redis
             - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER_URI
               value: http://polar-keycloak/realms/PolarBookshop
+            - name: SPA_URL
+              value: http://polar-ui
