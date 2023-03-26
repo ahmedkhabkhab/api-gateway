@@ -26,6 +26,7 @@ public class SecurityConfig {
                                                      ReactiveClientRegistrationRepository clientRegistrationRepository) {
         return http
                 .authorizeExchange(exchange -> exchange
+                        .pathMatchers("/actuator/**").permitAll()
                         .pathMatchers("/", "/*.css", "/*.js", "/favicon.ico").permitAll() // Allow static content without authentication
                         .pathMatchers(HttpMethod.GET, "/books/**").permitAll() // Allow retrieving books list without authentication
                         .anyExchange().authenticated()) // Any other request requires authentication
