@@ -114,6 +114,8 @@ logging:
     circuitbreaker: io.github.resilience4j, org.springframework.cloud.circuitbreaker
   level:
     circuitbreaker: info
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
 
 management:
   endpoints:
