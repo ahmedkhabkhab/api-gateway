@@ -44,7 +44,7 @@ jobs:
           kubectl: 1.26.1
           kubeconform: 0.5.0
           command: |
-            kubeconform -strict -debug k8s
+            kustomize build k8s | kubeconform -strict
   package:
     name: Package and publish
     if: ${{github.ref == 'refs/heads/master'}}

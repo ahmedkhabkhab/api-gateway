@@ -49,3 +49,11 @@ spec:
               port: 9000
             initialDelaySeconds: 5
             periodSeconds: 15
+          volumeMounts:
+            - name: api-gateway-volume
+              mountPath: /workspace/config
+
+      volumes:
+        name: api-gateway-volume
+        configMap:
+          name: api-gateway-config
