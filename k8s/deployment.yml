@@ -54,6 +54,6 @@ spec:
               mountPath: /workspace/config
 
       volumes:
-        name: api-gateway-volume
-        configMap:
-          name: api-gateway-config
+        - name: api-gateway-volume
+          configMap:
+            name: api-gateway-config
